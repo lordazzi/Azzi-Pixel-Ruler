@@ -80,7 +80,7 @@
             this.ContextoLabelMarcador.Size = new System.Drawing.Size(21, 14);
             this.ContextoLabelMarcador.TabIndex = 4;
             this.ContextoLabelMarcador.TabStop = false;
-            this.ContextoLabelMarcador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick); 
+            this.ContextoLabelMarcador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
             this.ContextoLabelMarcador.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
             // 
             // LinhaMarcador
@@ -118,6 +118,7 @@
             this.Controls.Add(this.VerticalBackground);
             this.Controls.Add(this.HorizontalBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AzziPixelRuler";
             this.Text = "AzziPixelRule";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
