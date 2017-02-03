@@ -1,9 +1,0 @@
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\bin\Debug\Azzi Pixel Rule.exe.config
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\bin\Debug\Azzi Pixel Rule.exe
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\bin\Debug\Azzi Pixel Rule.pdb
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi Pixel Rule.csprojResolveAssemblyReference.cache
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi_Pixel_Rule.Properties.Resources.resources
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi Pixel Rule.csproj.GenerateResource.Cache
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi Pixel Rule.exe
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi Pixel Rule.pdb
-c:\users\ricardo azzi silva\documents\visual studio 2015\Projects\Azzi Pixel Rule\Azzi Pixel Rule\obj\Debug\Azzi_Pixel_Rule.AzziPixelRule.resources
