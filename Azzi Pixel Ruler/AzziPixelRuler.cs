@@ -97,6 +97,8 @@ namespace Azzi_Pixel_Ruler
                 for (int i = 0; i < qtdMarcacoesNecessarias; i++)
                 {
                     MarcacaoLabel label = new MarcacaoLabel(this.orientation, i);
+                    label.MouseClick += new MouseEventHandler(this.AzziPixelRuler_MouseClick);
+                    label.MouseDown += new MouseEventHandler(this.Offset_MouseDown);
                     this.marcacoes.Add(label);
                     this.Controls.Add(label);
                 }
@@ -110,26 +112,11 @@ namespace Azzi_Pixel_Ruler
                 this.toggleOrientation();
             }
         }
-        
-        private void VerticalBackground_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.AzziPixelRuler_MouseClick(this, e);
-        }
 
-        private void HorizontalBackground_MouseClick(object sender, MouseEventArgs e)
+        private void Offset_MouseDown(object sender, MouseEventArgs e)
         {
-            this.AzziPixelRuler_MouseClick(this, e);
-        }
-
-        private void VerticalBackground_MouseDown(object sender, MouseEventArgs e)
-        {
-            MouseEventArgs evt = new MouseEventArgs(e.Button, e.Clicks, e.Location.X, e.Location.Y + this.defaultImageMargin, e.Delta);
-            this.AzziPixelRuler_MouseDown(this, evt);
-        }
-
-        private void HorizontalBackground_MouseDown(object sender, MouseEventArgs e)
-        {
-            MouseEventArgs evt = new MouseEventArgs(e.Button, e.Clicks, e.Location.X + this.defaultImageMargin, e.Location.Y, e.Delta);
+            Control control = (Control)sender;
+            MouseEventArgs evt = new MouseEventArgs(e.Button, e.Clicks, e.Location.X + control.Location.X, e.Location.Y + control.Location.Y, e.Delta);
             this.AzziPixelRuler_MouseDown(this, evt);
         }
     }

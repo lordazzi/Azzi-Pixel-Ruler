@@ -52,8 +52,8 @@
             this.HorizontalBackground.Size = new System.Drawing.Size(265, 32);
             this.HorizontalBackground.TabIndex = 0;
             this.HorizontalBackground.TabStop = false;
-            this.HorizontalBackground.MouseClick += new System.Windows.Forms.MouseEventHandler(this.HorizontalBackground_MouseClick);
-            this.HorizontalBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HorizontalBackground_MouseDown);
+            this.HorizontalBackground.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
+            this.HorizontalBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
             // 
             // VerticalBackground
             // 
@@ -64,8 +64,8 @@
             this.VerticalBackground.Size = new System.Drawing.Size(33, 213);
             this.VerticalBackground.TabIndex = 1;
             this.VerticalBackground.TabStop = false;
-            this.VerticalBackground.MouseClick += new System.Windows.Forms.MouseEventHandler(this.VerticalBackground_MouseClick);
-            this.VerticalBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VerticalBackground_MouseDown);
+            this.VerticalBackground.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
+            this.VerticalBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
             // 
             // AzziPixelRuler
             // 
