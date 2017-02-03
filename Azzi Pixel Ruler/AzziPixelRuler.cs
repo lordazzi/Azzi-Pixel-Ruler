@@ -14,7 +14,7 @@ namespace Azzi_Pixel_Ruler
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        public Orientation orientation = Orientation.VERTICAL;
+        public Orientation orientacao = Orientation.VERTICAL;
         public int defaultImageMargin = 15;
         public List<MarcacaoLabel> marcacoes = new List<MarcacaoLabel>();
 
@@ -36,28 +36,36 @@ namespace Azzi_Pixel_Ruler
             this.Width = this.defaultWidth;
             HorizontalBackground.Location = new Point(this.defaultImageMargin, HorizontalBackground.Location.Y);
             VerticalBackground.Location = new Point(VerticalBackground.Location.X, this.defaultImageMargin);
-            this.toggleOrientation();
+            this.alternarOrientacao();
         }
 
-        public void toggleOrientation()
+        public void alternarOrientacao()
         {
-            if (this.orientation == Orientation.HORIZONTAL)
+            if (this.orientacao == Orientation.HORIZONTAL)
             {
-                this.orientation = Orientation.VERTICAL;
+                this.orientacao = Orientation.VERTICAL;
                 this.Width = this.defaultWidth;
                 HorizontalBackground.Visible = false;
                 VerticalBackground.Visible = true;
+
+                //
+                LinhaMarcador.Size = new Size(60, 1);
             }
 
-            else if (this.orientation == Orientation.VERTICAL)
+            else if (this.orientacao == Orientation.VERTICAL)
             {
-                this.orientation = Orientation.HORIZONTAL;
+                this.orientacao = Orientation.HORIZONTAL;
                 this.Height = this.defaultHeight;
                 HorizontalBackground.Visible = true;
                 VerticalBackground.Visible = false;
-            }
-        }
 
+                //
+                LinhaMarcador.Size = new Size(1, 60);
+            }
+
+            this.atualizarMarcador();
+        }
+        
         private void AzziPixelRuler_MouseDown(object sender, MouseEventArgs e)
         {
             // http://stackoverflow.com/questions/1592876/make-a-borderless-form-movable
@@ -72,7 +80,7 @@ namespace Azzi_Pixel_Ruler
         {
             int qtdMarcacoesNecessarias = 0;
 
-            if (this.orientation == Orientation.HORIZONTAL)
+            if (this.orientacao == Orientation.HORIZONTAL)
             {
                 int w = Cursor.Position.X - this.Location.X;
                 this.Width = (w <= 50 ? 50 : w) + 25;
@@ -80,7 +88,7 @@ namespace Azzi_Pixel_Ruler
                 qtdMarcacoesNecessarias = HorizontalBackground.Width / 100;
             }
 
-            else if (this.orientation == Orientation.VERTICAL)
+            else if (this.orientacao == Orientation.VERTICAL)
             {
                 int h = Cursor.Position.Y - this.Location.Y;
                 this.Height = (h <= 50 ? 50 : h) + 25;
@@ -96,20 +104,53 @@ namespace Azzi_Pixel_Ruler
                 this.marcacoes = new List<MarcacaoLabel>();
                 for (int i = 0; i < qtdMarcacoesNecessarias; i++)
                 {
-                    MarcacaoLabel label = new MarcacaoLabel(this.orientation, i);
+                    MarcacaoLabel label = new MarcacaoLabel(this.orientacao, i);
                     label.MouseClick += new MouseEventHandler(this.AzziPixelRuler_MouseClick);
                     label.MouseDown += new MouseEventHandler(this.Offset_MouseDown);
                     this.marcacoes.Add(label);
                     this.Controls.Add(label);
                 }
             }
+
+            this.atualizarMarcador();
+        }
+
+        private void atualizarMarcador()
+        {
+            int paraOnde = 0;
+
+            if (this.orientacao == Orientation.HORIZONTAL)
+            {
+                paraOnde = Cursor.Position.X - this.Location.X;
+                if ((paraOnde - this.defaultImageMargin + 1) < 0)
+                    paraOnde = this.defaultImageMargin - 1;
+
+                //
+                LinhaMarcador.Location = new Point(paraOnde, 0);
+                ContextoLabelMarcador.Location = new Point(paraOnde - 9, 17);
+                LabelMarcador.Location = new Point(paraOnde - 7, 21);
+            }
+
+            else if (this.orientacao == Orientation.VERTICAL)
+            {
+                paraOnde = Cursor.Position.Y - this.Location.Y;
+                if ((paraOnde - this.defaultImageMargin + 1) < 0)
+                    paraOnde = this.defaultImageMargin - 1;
+
+                //
+                LinhaMarcador.Location = new Point(0, paraOnde);
+                ContextoLabelMarcador.Location = new Point(13, paraOnde - 7);
+                LabelMarcador.Location = new Point(15, paraOnde - 3);
+            }
+
+            LabelMarcador.Text = (paraOnde - this.defaultImageMargin + 1).ToString();
         }
 
         private void AzziPixelRuler_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-                this.toggleOrientation();
+                this.alternarOrientacao();
             }
         }
 

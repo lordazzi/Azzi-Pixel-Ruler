@@ -33,8 +33,12 @@
             this.MouseMovementListener = new System.Windows.Forms.Timer(this.components);
             this.HorizontalBackground = new System.Windows.Forms.PictureBox();
             this.VerticalBackground = new System.Windows.Forms.PictureBox();
+            this.ContextoLabelMarcador = new System.Windows.Forms.PictureBox();
+            this.LinhaMarcador = new System.Windows.Forms.Panel();
+            this.LabelMarcador = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.HorizontalBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContextoLabelMarcador)).BeginInit();
             this.SuspendLayout();
             // 
             // MouseMovementListener
@@ -67,12 +71,50 @@
             this.VerticalBackground.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
             this.VerticalBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
             // 
+            // ContextoLabelMarcador
+            // 
+            this.ContextoLabelMarcador.BackColor = System.Drawing.Color.Transparent;
+            this.ContextoLabelMarcador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ContextoLabelMarcador.BackgroundImage")));
+            this.ContextoLabelMarcador.Location = new System.Drawing.Point(13, 49);
+            this.ContextoLabelMarcador.Name = "ContextoLabelMarcador";
+            this.ContextoLabelMarcador.Size = new System.Drawing.Size(21, 14);
+            this.ContextoLabelMarcador.TabIndex = 4;
+            this.ContextoLabelMarcador.TabStop = false;
+            this.ContextoLabelMarcador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick); 
+            this.ContextoLabelMarcador.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
+            // 
+            // LinhaMarcador
+            // 
+            this.LinhaMarcador.BackColor = System.Drawing.Color.White;
+            this.LinhaMarcador.Location = new System.Drawing.Point(0, 56);
+            this.LinhaMarcador.Name = "LinhaMarcador";
+            this.LinhaMarcador.Size = new System.Drawing.Size(60, 1);
+            this.LinhaMarcador.TabIndex = 5;
+            this.LinhaMarcador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
+            this.LinhaMarcador.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
+            // 
+            // LabelMarcador
+            // 
+            this.LabelMarcador.AutoSize = true;
+            this.LabelMarcador.BackColor = System.Drawing.Color.White;
+            this.LabelMarcador.Font = new System.Drawing.Font("Arial", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelMarcador.Location = new System.Drawing.Point(15, 53);
+            this.LabelMarcador.Name = "LabelMarcador";
+            this.LabelMarcador.Size = new System.Drawing.Size(16, 7);
+            this.LabelMarcador.TabIndex = 6;
+            this.LabelMarcador.Text = "100";
+            this.LabelMarcador.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseClick);
+            this.LabelMarcador.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Offset_MouseDown);
+            // 
             // AzziPixelRuler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(60, 60);
+            this.ClientSize = new System.Drawing.Size(156, 152);
+            this.Controls.Add(this.LabelMarcador);
+            this.Controls.Add(this.ContextoLabelMarcador);
+            this.Controls.Add(this.LinhaMarcador);
             this.Controls.Add(this.VerticalBackground);
             this.Controls.Add(this.HorizontalBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -82,7 +124,9 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AzziPixelRuler_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.HorizontalBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContextoLabelMarcador)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,6 +135,9 @@
         private System.Windows.Forms.Timer MouseMovementListener;
         private System.Windows.Forms.PictureBox HorizontalBackground;
         private System.Windows.Forms.PictureBox VerticalBackground;
+        private System.Windows.Forms.PictureBox ContextoLabelMarcador;
+        private System.Windows.Forms.Panel LinhaMarcador;
+        private System.Windows.Forms.Label LabelMarcador;
     }
 }
 
